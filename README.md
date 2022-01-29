@@ -3,22 +3,13 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+All you need to run this is
 
-* Ruby version
+* Set MYSQL_ROOT_PASSWORD to whatever you'd like both in the web service and db service
 
-* System dependencies
+* docker-compose up
 
-* Configuration
 
-* Database creation
+Things to consider
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* The DB is stateless, if the whole stack is restarted, all stored data will be gone
