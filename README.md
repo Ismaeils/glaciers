@@ -25,6 +25,7 @@ All you need to run this is
 
 ## Things to consider
 
+* If you faced this error ```exec user process caused "no such file or directory"``` when starting the web service, make sure that the *entrypoint.sh* file's line ending is in LF format not CRLF
 * DB commands like ```rake db:create, rails db:migrate, rails db:seed``` are ran automatically
 * DB will contain a random seed at startup
 * DB is stateless, if the whole stack is restarted, all stored data will be gone
