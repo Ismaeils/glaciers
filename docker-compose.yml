@@ -4,21 +4,20 @@ services:
     image: mysql
     ports: 
       - 3306
-    command: mysqld --default-authentication-plugin=mysql_native_password
+    command: --default-authentication-plugin=mysql_native_password
     restart: always
     volumes:
       # - /var/data/mysql:/var/lib/mysql
       - ./mysql/my.cnf:/etc/my.cnf
     environment:
-      - MYSQL_ROOT_PASSWORD= #SET_YOUR_PASSWORD_HERE
+      - MYSQL_ROOT_PASSWORD=#SET_DB_PASSWORD_HERE
 
 ## bundle exec rake db:create && bundle exec rails db:migrate && bundle exec rails db:seed && 
   web:
     build: .
-    restart: always
     command: bash -c "sleep 15 && bundle exec rake db:create && bundle exec rails db:migrate && bundle exec rails db:seed && rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     environment:
-      - MYSQL_ROOT_PASSWORD= #SET_YOUR_PASSWORD_HERE
+      - MYSQL_ROOT_PASSWORD=#SET_DB_PASSWORD_HERE
     volumes:
       - .:/glaciers
     ports:
