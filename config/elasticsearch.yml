@@ -1,0 +1,5 @@
+development: &default
+  # host: elasticsearch
+  log: true
+test:
+  # host: elasticsearch
